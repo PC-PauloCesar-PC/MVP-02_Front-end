@@ -1,0 +1,681 @@
+/* ==========================================================================
+   Estilos Gerais e Reset
+   Define a aparência base da página, fundo, fontes e reseta estilos padrão.
+   ========================================================================== */
+body {
+    font-family: 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-image: url('img/banner_02.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: rgba(0, 229, 255, 0.5);
+}
+
+/* Garante que o layout ocupe a tela toda */
+html, body {
+    height: 100%;
+}
+
+/* Remove as setas (spinners) dos campos de número no Chrome, Safari, Edge e Opera */
+input::-webkit-outer-spin-button, input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Remove as setas (spinners) dos campos de número no Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
+/* ==========================================================================
+   Cabeçalho
+   Estilos para o título principal no topo da página.
+   ========================================================================== */
+header {
+    text-align: center;
+    position: relative;
+    width: 100%;
+    padding: 20px 0;
+}
+
+.title {
+    color: black;
+    width: 80%;
+    margin: 10px auto;
+    background-color: rgba(0, 229, 255, 0.5);
+    display: inline-block;
+    padding: 1px 30px;
+    border-radius: 8px;
+    text-align: center;
+    position: sticky;
+    top: 0px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   Contêiner do Formulário
+   Estilo do painel principal que envolve todas as seções/views.
+   ========================================================================== */
+.mainSectionContainer {
+    color: rgb(0, 0, 0);
+    width: 80%;
+    margin: 10px auto; /* Adiciona margem para centralizar e dar espaço */
+    background-color: rgba(0, 229, 255, 0.5); /* Fundo */
+    /*background-color: rgba(230, 245, 247, 0.8); /* Fundo opaco*/
+    padding: 30px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.8);
+}
+
+/* ==========================================================================
+   Container dos Botões
+   Alinhamento e espaçamento para as seções de botões de ação dos formulários.
+   ========================================================================== */
+#newEmployeeForm .mainDivButtons,
+#updateEmployeeForm .mainDivButtons,
+#searchEmployeeForm .mainDivButtons,
+#employeeQRCodeForm .mainDivButtons,
+#employeeNotesForm .mainDivButtons,
+#busAccessForm .mainDivButtons,
+#mainPageForm .mainDivButtons,
+#deleteEmployeeForm .mainDivButtons,
+#employmentContractDataForm .mainDivButtons {
+    padding-top: 30px;
+    padding-bottom: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    grid-column: 1 / 5;
+    /*background-color: rgb(0, 0, 0);*/
+}
+
+/* ==========================================================================
+   Botões
+   Estilos base e de interação (hover) para todos os botões da aplicação.
+   ========================================================================== */
+.actionBtn {
+    padding: 8px 15px;
+    background-color: #0800ff;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transição apenas na cor */
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.saveNewEmployeeBtn:hover,
+.saveUpdateEmployeeBtn:hover,
+.searchEmployeeBtn:hover,
+.employeeQRCodeBtn:hover,
+.employeeSaveNotesBtn:hover,
+.employeeSaveEditionNoteBtn:hover,
+.busAccessByNumberBtn:hover,
+.busAccessByDateBtn:hover,
+.busAccessByMatriculaBtn:hover,
+.busAccessByMatriculaBtn:hover,
+.newEmployeePageBtn:hover,
+.updateEmployeePageBtn:hover,
+.searchEmployeePage:hover,
+.qrCodeEmployeePageBtn:hover,
+.notesEmplyeePageBtn:hover,
+.busAccessPageBtn:hover,
+.generateEmploymentContractPageBtn:hover,
+.generateContractBtn:hover,
+.statusSectorBtn:hover,
+.accessPerHourBtn:hover {
+    background-color: #28a745;
+}
+
+.searchAllEmployeeBtn:hover,
+.employeeAllQRCodeBtn:hover,
+.busAccessAllBnt:hover,
+.deleteEmployeePageBtn:hover {
+    background-color: yellow; /* Amarelo para atenção  */
+    color: black;
+}
+
+.cancelActionBtn:hover,
+.deleteEmployeeBtn:hover {
+    background-color: #dc3545; /* Vermelho para cancelar/excluir */
+}
+
+.clearNewEmployeeBtn:hover,
+.clearUpdateEmployeeBtn:hover,
+.clearsearchEmployeeBtn:hover,
+.clearQRCodeBtn:hover,
+.employeeClearFormNotesBtn:hover,
+.busAccessClearBtn:hover,
+.clearDeleteEmployeeBtn:hover,
+.clearFormBusAccessBtn:hover,
+.clearemploymentContractDataFormBtn:hover {
+    background-color: white; /* Branco para limpar */
+    color: black; /* Texto preto para dar contraste com o fundo branco do botão*/
+}
+
+/* ==========================================================================
+   Estilos dos formulários
+   Define o layout em grid, aparência dos campos (input, textarea) e labels.
+   ========================================================================== */
+
+/* Estilo de div do formulário*/
+.divStyle1 {
+    padding: 5px;
+    border-radius: 4px;
+    box-sizing: border-box;
+    background-color: rgba(230, 245, 247, 0.8); /* Fundo opaco*/
+}
+
+/* Transforma o formulário em um contêiner Grid */
+#newEmployeeForm,
+#updateEmployeeForm,
+#searchEmployeeForm,
+#employeeQRCodeForm,
+#employeeNotesForm,
+#busAccessForm,
+#mainPageForm,
+#deleteEmployeeForm,
+#employmentContractDataForm {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 15px;
+}
+
+/* Regra para os itens que devem ocupar a largura total */
+.full-width {
+    grid-column: 1 / 5;
+}
+
+/* --- Estilo para cada linha (div) do formulário --- */
+#newEmployeeForm div,
+#updateEmployeeForm div,
+#searchEmployeeForm div,
+#employeeQRCodeForm div,
+#employeeNotesForm div,
+#busAccessForm div,
+#deleteEmployeeForm div,
+#employmentContractDataForm div {
+    display: flex;
+    flex-direction: column; /* Coloca a label em cima do input */
+    align-items: flex-start;
+}
+
+/* --- Estilo para todas as labels dentro do formulário --- */
+#newEmployeeForm label,
+#updateEmployeeForm label,
+#searchEmployeeForm label,
+#employeeQRCodeForm label,
+#employeeNotesForm label,
+#busAccessForm label,
+#deleteEmployeeForm label,
+#employmentContractDataForm label {
+    font-weight: bold;
+    margin-bottom: 5px;
+
+}
+
+/* --- Estilo GERAL para todos os inputs e textareas dentro do formulário --- */
+#newEmployeeForm input,
+#newEmployeeForm textarea,
+#newEmployeeForm select,
+#updateEmployeeForm input,
+#updateEmployeeForm select,
+#searchEmployeeForm input,
+#employeeQRCodeForm input,
+#employeeNotesForm input,
+#employeeNotesForm textarea,
+#busAccessForm input,
+#deleteEmployeeForm input,
+#employmentContractDataForm input,
+#employmentContractDataForm select {
+
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* --- Estilo específico para o campo de anotações --- */
+#newEmployeeForm textarea,
+#employeeNotesForm textarea {
+    resize: vertical;          /* Permite que o usuário redimensione a altura do campo de anotações */
+}
+
+/* --- Estilo para o título h1 --- */
+.titleH1Style {
+    width: 90%;
+    border-radius: 4px;
+    background-color: rgba(230, 245, 247, 0.8); /* Fundo opaco */
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* --- Estilo para o título h2 --- */
+.titleH2Style {
+    max-width: 300px;
+    margin: 0 auto 30px auto;
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: rgba(230, 245, 247, 0.8); /* Fundo opaco */
+    text-align: center; 
+    box-sizing: border-box;     
+}
+
+/* --- Estilo para o título h3 específico da atualização de cadastro --- */
+.titleH3Style {
+    
+    padding: 10px 20px;
+    border-radius: 4px;
+    background-color: rgba(230, 245, 247, 0.8); /* Fundo opaco */
+    text-align: left;
+    box-sizing: border-box;     
+}
+
+/* --- Estilo para o rodapé --- */
+.footerStyle {
+    text-align: center;
+    font-weight: bold;
+}
+
+/* ==========================================================================
+   Estilos da Tabela de Resultados
+   Define a aparência das tabelas, cabeçalhos fixos (sticky), cores de
+   linhas e o contêiner com barra de rolagem.
+   ========================================================================== */
+
+/* Contêiner que permitirá a rolagem */
+.table-container {
+    width: 100%; /* Ocupa toda a largura do seu pai */
+    overflow-x: auto; /* Adiciona scroll HORIZONTAL se o conteúdo (tabela) for mais largo */
+    overflow-y: auto; /* Adiciona scroll VERTICAL se o conteúdo for mais alto */
+    max-height: 500px; /* Define uma altura máxima. Acima disso, o scroll vertical aparecerá */
+    background-color: #ccc;
+}
+
+/* Estilo para tabela */
+#employeeTable, #busAccessTable {
+    width: 100%; /* Garante que a tabela tente ocupar todo o espaço do contêiner */
+    border-collapse: collapse; /* Une as bordas das células */
+}
+
+#employeeTable th, #employeeTable td, #busAccessTable th, #busAccessTable td {
+    border: 2px solid #000000;
+    padding: 8px 12px;
+    text-align: left;
+    white-space: nowrap; /* Impede que o texto quebre em várias linhas, forçando o scroll horizontal */
+}
+
+#employeeTable thead th, #busAccessTable thead th {
+    background-color: rgb(51, 196, 215);
+    font-weight: bold;
+    position: sticky;
+    top: 0; /* Fixa o cabeçalho no topo do contêiner durante o scroll vertical */
+    z-index: 1; /* Garante que o cabeçalho fique por cima do conteúdo ao rolar */
+}
+
+/* Estilo para as linhas ímpares (1ª, 3ª, 5ª...) do corpo da tabela */
+#employeeTable tbody tr:nth-child(odd), #busAccessTable tbody tr:nth-child(odd) {
+    background-color: rgba(255, 255, 255);
+}
+
+/* Estilo para as linhas pares (2ª, 4ª, 6ª...) do corpo da tabela */
+#employeeTable tbody tr:nth-child(even), #busAccessTable tbody tr:nth-child(even) {
+    background-color: rgb(200, 200, 200);
+}
+
+/* Cor de destaque ao passar o mouse */
+#employeeTable tbody tr:hover, #busAccessTable tbody tr:hover {
+    background-color: green;
+}
+
+/* Exceção para o cabeçalho da coluna de anotações: aplica a largura mínima  
+   somente se a tabela tiver pelo menos uma linha de dados no corpo */
+#employeeTable:has(tbody tr) .columnNotes {
+    white-space: normal;
+    min-width: 500px;
+}
+
+/* Exceção para o corpo da tabela de anotações
+   Aplica a largura máxima de 500px para as células 
+ */
+#employeeTable .notes-cell {
+    white-space: normal;       /* Permite a quebra de linha entre palavras */
+    overflow-wrap: break-word; /* Força a quebra de palavras muito longas */
+    word-wrap: break-word;
+    max-width: 500px;
+}
+
+#employeeTableBody, #busAccessTableBody {
+    width: 100%;
+}
+
+/* ==========================================================================
+   Estilos da Paginação
+   Aparência e comportamento dos controles "Anterior" e "Próxima" e do texto
+   de informação de página.
+   ========================================================================== */
+#searchEmployeeForm .paginatioContainer,
+#busAccessForm .paginatioContainer {
+    display: none;              /* Começa escondido */
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
+    margin-top: 5px;
+    padding: 5px;
+    /*background-color: rgba(230, 245, 247, 0.8);*/
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+/* Container dos botões "Anterior" e "Próxima" */
+#searchEmployeeForm .pagination-nav,
+#busAccessForm .pagination-nav {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* Estilo para os próprios links de navegação */
+.pagination-nav a {
+    text-decoration: none;
+    color: #0800ff;
+    font-weight: bold;
+}
+
+/* Container para o texto de informação da página */
+.pagination-info {
+    font-weight: bold;
+}
+
+/* Estilo visual para quando um link está desabilitado */
+.page-link.disabled {
+    pointer-events: none;       /* Impede o clique */
+    color: #ccc;                /* Cor de desabilitado */
+}
+
+/* ==========================================================================
+   Classes Utilitárias e de Formulário
+   Classes auxiliares como '.hidden' para esconder elementos e '.required'
+   para o asterisco em campos obrigatórios.
+   ========================================================================== */
+.hidden {
+    display: none !important;
+}
+
+/* Adiciona um asterisco vermelho após o texto de qualquer label com a classe 'required' */
+.required::after {
+    content: " *"; /* O espaço antes do asterisco é importante para não colar no texto */
+    color: red;
+    font-weight: bold;
+}
+
+/* Estilo para a contagem de funcionários encontrados */
+#employeeCount, #busAccessCount {
+    color: #000000;
+    font-weight: bold;
+    font-size: 0.9em;
+    margin-left: 10px;
+}
+
+/* ==========================================================================
+   Estilos Específicos do Formulário de Contrato
+   ========================================================================== */
+
+/* * Transforma o fieldset em um grid de 4 colunas, igual ao form.
+ */
+#employmentContractDataForm fieldset {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 colunas */
+    gap: 15px; /* Mesmo 'gap' do formulário principal */
+
+    /* Reseta o estilo padrão do fieldset */
+    /*border: none;
+    padding: 0;
+    margin: 0;*/
+
+    border: 2px solid #000000;
+    border-radius: 4px; /* Para combinar com o resto do seu layout */
+    
+    padding: 20px; /* Adiciona espaçamento interno */
+    margin: 0;
+}
+
+/* * Faz a legenda ocupar todas as 4 colunas e se parecer
+ * com os outros títulos, para não quebrar o alinhamento.
+ */
+#employmentContractDataForm fieldset legend {
+    grid-column: 1 / 5; /* Faz a legenda ocupar o topo inteiro */
+    background-color: rgba(230, 245, 247, 0.8);
+    
+    border: 2px solid #000000;
+    border-radius: 4px;
+    
+    padding: 4px 15px;
+    text-align: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    width: fit-content; 
+    
+}
+
+.loginBtn {
+    padding: 8px 15px;
+    background-color: #28a745;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transição apenas na cor */
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.logoutBtn {
+    padding: 8px 15px;
+    background-color: #ff0000;
+    color: white;
+    border: none;
+    text-align: center;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transição apenas na cor */
+    border-radius: 4px;
+    margin: 0 5px;
+}
+
+.loginBtn:hover,
+.logoutBtn:hover {
+    background-color: #0800ff;
+}
+
+/* --- Estilos para Dashboards --- */
+
+.charts-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap; /* Para telas pequenas */
+    gap: 20px;
+    background-color: rgba(255, 255, 255, 0.5); /* Fundo leve para destaque */
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.chart-wrapper {
+    position: relative;
+    height: 300px; /* Altura fixa */
+    width: 45%;
+    min-width: 300px;
+}
+
+.full-chart {
+    width: 90%;
+    margin: 0 auto;
+
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    box-sizing: border-box; /* Importante para o padding não estourar a largura */
+}
+
+/* Responsividade simples */
+@media (max-width: 768px) {
+    .chart-wrapper {
+        width: 100%;
+    }
+}
+
+.dashboard-titles {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Container Principal */
+.dashboard-container {
+    background-color: rgba(255, 255, 255, 0.6);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 30px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    width: 100%;       /* Garante largura total */
+    box-sizing: border-box; /* Garante que o padding não estoure a largura */
+}
+
+/* --- CARDS DE STATUS (KPIs) --- */
+.status-cards-row {
+    display: flex !important;            /* Força o display flex */
+    flex-direction: row !important;      /* Força a direção horizontal */
+    justify-content: center !important;  /* Força a centralização */
+    align-items: stretch;
+    gap: 30px;
+    margin-bottom: 30px;
+    width: 100%;
+    flex-wrap: wrap; /* Permite quebrar linha apenas em telas muito pequenas */
+}
+
+.kpi-card {
+    flex: 1; /* Cresce para ocupar espaço igual */
+    min-width: 180px; /* Tamanho mínimo confortável */
+    max-width: 300px; /* Tamanho máximo para não esticar demais */
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    color: white;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cores dos Cards */
+.card-active { background-color: #28a745; }
+.card-leave { background-color: #ffc107; color: #333; }
+.card-terminated { background-color: #dc3545; }
+
+.kpi-label { font-size: 1.1em; text-transform: uppercase; margin-bottom: 5px; }
+.kpi-value { font-size: 2.5em; font-weight: bold; }
+
+
+/* --- ÁREA DO GRÁFICO DE SETOR --- */
+.sector-dashboard-wrapper {
+    display: flex !important;           /* Força flex */
+    flex-direction: column !important;     /* Força horizontal */
+    justify-content: center !important; /* Força centralização */
+    align-items: center !important;
+    gap: 40px;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.chart-box {
+    /* Tamanho fixo para garantir que o canvas renderize corretamente */
+    width: 400px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Caixa principal da legenda */
+.chart-legend-box {
+    flex: 1;
+    background: rgba(255,255,255,0.9);
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    padding: 15px;
+    max-height: 150px !important;
+    overflow-y: auto;
+}
+
+/* Cabeçalho da legenda (Setor | Qtd) */
+.legend-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    border-bottom: 2px solid #333;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+}
+
+/* CADA LINHA DA LEGENDA */
+.legend-item {
+    display: grid !important; /* Força o grid */
+    /* Define 3 colunas: 
+       1) 15px fixos para a bolinha 
+       2) 1fr (fração restante) para o nome do setor 
+       3) auto (tamanho do conteúdo) para os números */
+    grid-template-columns: 15px 1fr auto !important; 
+    align-items: center; /* Centraliza verticalmente */
+    gap: 10px; /* Espaço entre as colunas */
+    padding: 6px 0;
+    border-bottom: 1px solid #f0f0f0;
+    font-size: 0.9rem;
+    width: 100%;
+}
+
+/* Bolinha */
+.legend-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+/* O nome do setor */
+.legend-label {
+    text-align: left;
+    line-height: 1.2;
+}
+
+/* Os números */
+.legend-value {
+    font-weight: bold;
+    color: #444;
+    text-align: right;
+    white-space: nowrap; /* Impede quebra de linha nos números */
+}
+
+/* Rodapé (Total) */
+.legend-footer {
+    margin-top: 15px;
+    text-align: right;
+    font-weight: bold;
+    font-size: 1.1rem;
+}
