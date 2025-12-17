@@ -1,4 +1,0 @@
-opencv-python
-pyzbar
-tk # Geralmente já vem com o Python, mas em algumas instalações Linux precisa ser instalado
-numpy
